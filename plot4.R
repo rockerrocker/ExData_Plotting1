@@ -10,6 +10,7 @@ testAllData <- read.table("./data/household_power_consumption.txt", sep = ";", h
 # Some are "d/m/yyyy"
 testAllData$Date <- as.Date(testAllData$Date, "%d/%m/%Y")
 data <- subset(testAllData, Date >= as.Date("2007-02-01") & Date <= as.Date("2007-02-02"))
+rm(testAllData) # free up memory
 
 ## Combine date and time
 data$datetime <- strptime(paste(data$Date, data$Time), "%Y-%m-%d %H:%M:%S")
